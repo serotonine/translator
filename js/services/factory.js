@@ -6,7 +6,7 @@ app.factory("restFactory", function ($resource, $q) {
     nameList: false,
     response: {},
     rest: $resource(
-      "https://serotonine.alwaysdata.net/translator/restapi/:type/:user/:id/:fr/:nl/:perf/:imperf",
+      "https://serotonine.alwaysdata.net/restapi/:type/:user/:id/:fr/:nl/:perf/:imperf",
       {
         type: "@type",
         user: "@user",
@@ -17,7 +17,6 @@ app.factory("restFactory", function ($resource, $q) {
         imperf: "@imperf",
         showhide: "@showhide",
       },
-      { headers: { "Access-Control-Allow-Origin": "*" } },
       { update: { method: "PUT" } }
     ),
     //return list of such or such type
