@@ -1,0 +1,117 @@
+<div id="content">
+<header>
+
+<h5>Choose the type of list</h5>
+	<form class="form-inline" name="form" ng-submit="displayList()">
+		<select class="form-control" ng-model="type" title="type of list">
+			<option value="name">names</option>
+			<option value="verb">verbs</option>
+			<option value="zin">sentences</option>
+		</select>
+		<select class="form-control" ng-model="version" title="language version">
+			<option value="1">fr >> nl</option>
+			<option value="2">nl >>fr</option>
+		</select>
+		<select class="form-control" ng-model="date" title="items created since ex.created since 2 weeks">
+			<option value="">no date</option>
+			<option value="1">yesterday</option>
+			<option value="7">1 week</option>
+			<option value="14">2 weeks</option>
+			<option value="21">3 weeks</option>
+			<option value="30">1 month</option>
+			<option value="60">2 months</option>
+			<option value="90">3 months</option>
+			<option value="180">6 months</option>
+			<option value="365">1 year</option>
+		</select>
+		<input class="form-control" title="number of items. Max 100" name="nb" ng-model="nbItems" type="number" placeholder="{{nbItems}}" ng-pattern="/[1-9]/"   min="1" max="100" maxlength="3" size="3" ng-init="nbItems=10">
+
+		<button class="form-control" ng-show="this.form.$valid&&isGoVisible" type="submit">Go !</button>
+		
+		
+<span class="error" ng-show="form.nb.$error.pattern">Only numbers!</span><br>
+<span class="error" ng-show="form.nb.$error.maxlength">2 numbers max!</span><br>
+	</form>
+
+
+</header>
+<article>
+
+	
+
+	<p ng-show="isEmpty&&isGo">Loading....</p>
+
+	<div ng-if="!isEmpty">
+	
+		<table >
+			<tr ng-repeat="(key,item) in items" ng-switch on="version">
+				<td >
+					<span ng-switch-when="1">{{item.fr}}</span>
+					<span ng-switch-when="2">{{item.nl}}</span>
+				</td>
+				<td>
+					<input class="solution" type="search" size="{{inputsize}}" ng-switch-when="1" ng_response solution="{{item.nl}}"  ng-model="response" type="text" size="{{inputsize}}" placeholder="place translation here" />
+					<input class="solution" type="search" ng-switch-when="2" ng_response solution="{{item.fr}}" ng-model="response" type="text" value="" placeholder="place translation here"  />
+				</td>
+				<td><div class="pictos wrong">&nbsp;</div></td>
+				<td>
+				<!--	<button ng-click="showresponse('infinitief'+key)" tabindex="-1" >solution</button></td>-->
+				<button ng-switch-when="1" Popover-animation="true" popover="{{item.nl}}" class="btn btn-default" tabindex="-1" >solution</button>
+				<button ng-switch-when="2" Popover-animation="true" popover="{{item.fr}}" class="btn btn-default" tabindex="-1" >solution</button>
+				<<!--<td>
+					<span  id="infinitief{{key}}" class="hidden"></span>
+					<span ng-switch-when="2" id="infinitief{{key}}" class="hidden"></span>
+				</td>-->
+				<!-- if verb nl -->
+				
+				<td ng-if="isVerbnl && item.perf || item.imperf ">
+					<table>
+						<tr>
+							<td>
+								<input class="solution" type="search" ng-if="item.perf" ng_response solution="{{item.perf}}" ng-model="responseperf" type="text" value="" placeholder="zet perfectum hier" />
+							</td>
+							<td><div class="pictos wrong">&nbsp;</div></td>
+							<td>
+								<input class="solution" type="search" ng-if="item.imperf" ng_response solution="{{item.imperf}}" ng-model="responseimperf" type="text" value="" placeholder="zet imperfectum hier" />
+							</td>
+							<td><div class="pictos wrong">&nbsp;</div></td>
+							<td><button ng-click="showresponse('solution'+key)" tabindex="-1" >solution</button></td>
+							<td><p id="solution{{key}}" class="hidden">
+								<span ng-if="item.perf"> perfectum : {{item.perf}}</span>
+								<span ng-if="item.imperf">imperfectum : {{item.imperf}}</span>
+							</td>
+						
+						</tr>
+					</table>	
+				</td>
+				<td>
+				<span><button class="btn_hide" ng-click="hideItem(item)" tabindex="-1" >hide</button></span>
+				<span class="btn update">
+					<button id="update_pop" ng-click="popup.displayPopup('update',item)" tabindex="-1" >update name</button>
+				</span>
+				<span><button class="delete" ng-click="deleteItem(item)" tabindex="-1" >delete</button></span>
+				</td>
+				<td>	</td>
+	
+	</article>
+			</tr>	
+		</table>
+		<div ng-if="items.length>=1">
+			<form name="form" ng-submit="displayList()">
+				<button ng-show="this.form.$valid&&isGoVisible" type="submit">Go !</button>
+			</form>
+			<form name="form" ng-submit="repeatList()">
+				<button type="submit">Repeat</button>
+			</form>
+			<ng-create-update-popup></ng-create-update-popup>
+		</div>
+		
+		
+		<div ng-if="items.length<1">
+	<p>there is no items to display</p>
+	</div>
+	</div><!-- end if not empty-->
+<div>
+
+
+

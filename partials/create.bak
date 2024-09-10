@@ -1,0 +1,22 @@
+<h3>Create</h3>
+<div>
+	<ul ng-repeat="naam in namen">
+	<li>{{naam.fr}} >> {{naam.nl}}</li>
+</ul>
+</div>
+<select>
+	<option value="naam">create name</option>
+	<option value="verb">create verb</option>
+	<option value="zin">create sentence</option>
+</select>
+
+<div>
+	<form ng-submit="createName()">
+		<input ng-model="params.type" type="hidden" value="name" placeholder="Ecrivez le nom"/></br>
+		<label for="fr">fr</label>
+		<input ng-model="params.content.fr" type="text" value="" placeholder="Ecrivez le nom" id="fr"/></br>
+		<label for="nl">nl</label>
+		<input ng-model="params.content.nl" type="text" value="" placeholder="Schrijf de naam" id="nl"/></br>
+		<input type="submit" value="create">	
+</div>
+

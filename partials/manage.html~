@@ -1,0 +1,54 @@
+<h3>List</h3>
+<div class="ng-droptype" type={{type}}></div>
+<h3>{{type}}</h3>
+
+<p>
+<!-- TODO boucle pour génération dynamique -->
+<span class="btn create">
+	<button id="create_name"  ng-model="type" ng-click="changeType('name'); popup.displayPopup('create',type)" value="name">create new name</button>
+</span>
+<span class="btn create">
+	<button id="create_verb" ng-model="type" ng-click="changeType('verb'); popup.displayPopup('create',type)" value="verb">create new verb</button>
+</span>
+<span class="btn create">
+	<button id="create_zin" ng-model="type" ng-click="changeType('zin'); popup.displayPopup('create', type)" value="zin">create new zin</button>
+</span>
+
+</p>
+<div id="list">
+	<ul ng-repeat="item in items">
+	<li>
+		<p>
+			 {{item.nl}} : {{item.fr}}
+			<span class="btn delete">
+				<button id="delete" ng-click="delete(item)">delete name</button>
+			</span>
+			<span class="btn update">
+				<button id="update_pop" ng-click="popup.displayPopup('update',item)">update name</button>
+			</span>
+		</p>
+	</li>
+</ul>
+</div>
+
+<!--
+<div id="update_form" class="ng-modal-dialog" ng-show="showUpdateForm">
+	<div class="ng-modal-dialog-content">
+		<button class="close" ng-click="hideUpdateForm()">close</button>
+	<h3>Update {{type}}</h3>
+			<form ng-submit="update()">
+			<input type="hidden" ng-model="updateItem.id" placeholder="{{updateItem.id}}" /></br>
+		<input type="text" ng-model="updateItem.fr" placeholder="{{updateItem.fr}}" /></br>
+		<input type="text" ng-model="updateItem.nl" placeholder="{{updateItem.nl}}" /></br>
+		<input type="submit" value="update">
+	</form>
+	</div>
+	<div>{{response.response}}</div>
+</div>
+-->
+
+<!-- POP UP -->
+<ng-create-update-popup></ng-create-update-popup>
+
+<!-- TO TRASH <ng-create-popup></ng-create-popup>-->
+

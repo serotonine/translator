@@ -1,0 +1,2 @@
+	<span><input ng-model="response" type="text" value="" placeholder="place translation here" /></span>
+		<span reponse="response">{{response}}</span>

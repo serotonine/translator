@@ -1,0 +1,7 @@
+
+
+<!--<input name="nb" ng-model="nbItems"  ng-maxlength="2" ng-pattern="/[1-9]/" type="text" placeholder="{{nbItems}}" maxlength="2" size="2" >-->
+<input class="form-control" title="number of items. Max 100" name="nb" ng-model="nbItems" type="number" placeholder="{{nbItems}}" ng-pattern="/[1-9]/"   min="1" max="100" maxlength="3" size="3" >
+
+<span class="error" ng-show="form.nb.$error.pattern">Only numbers!</span><br>
+<span class="error" ng-show="form.nb.$error.maxlength">2 numbers max!</span><br>

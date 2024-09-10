@@ -1,0 +1,99 @@
+/* params list to display */
+
+app.directive('ngDropType', function(){
+	
+	return {
+		restrict:'E',
+		templateUrl:'partials/directives/_droptype.html',
+	}
+	
+});
+	
+app.directive('ngDropLg', function(){
+
+	return {	
+		restrict:'E',
+		templateUrl:'partials/directives/_droplg.html',
+	}
+	
+});
+
+app.directive('ngInputNbitems', function(){
+
+	return {	
+		restrict:'E',
+		templateUrl:'partials/directives/_inputNbitems.html',
+	}
+	
+});
+
+
+/* eval response input to display wrong or ok */
+
+app.directive('ngResponse',function(){
+	
+	return {
+	
+	 restrict:'A',
+	 link: function(scope, elm, attrs) {
+	 	
+	 	var pictos =angular.element(elm).parent().next().children(),
+	 	isOk=false;
+
+	 	scope.$watch(attrs.ngModel, function (value) {
+			if( value == attrs.solution ){ 
+				if(pictos){ isOk=!isOk ; angular.element(pictos).removeClass('wrong').addClass('ok');}
+			}
+			else {
+				if(isOk){ angular.element(pictos).removeClass('ok').addClass('wrong');isOk=!isOk ; }		
+			}
+		
+		});//end scope.$watch
+	
+	 }//end link
+	 
+	 }//end return
+
+});
+
+/*
+* TODO REPLACE BY CREATEUPDATEPOPUP
+* switch form according the created type - name -verb - zin 
+* used in manage.html
+*/
+
+app.directive('ngCreatePopup',function(){
+	
+	return {
+	
+	 restrict:'E',
+
+ templateUrl:'partials/directives/_createpopup.html'//,
+	
+	//link: function(scope, elm, attrs) { console.log(scope) }
+	 	
+	 
+	 }//end return
+
+});
+
+/*
+* if on create or update
+* switch form according the created type - name -verb - zin 
+* used in home.html and manage.html
+*/
+
+app.directive('ngCreateUpdatePopup',function(){
+	
+	return {
+	
+	 restrict:'E',
+
+ templateUrl:'partials/directives/_popup-create-update.html'//,
+	
+	//link: function(scope, elm, attrs) { console.log(scope) }
+	 	
+	 
+	 }//end return
+
+});

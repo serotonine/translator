@@ -1,0 +1,50 @@
+<h3>List</h3>
+<div class="ng-droptype" type='name'></div>
+<h3>{{type}}</h3>
+<p><span class="btn create">
+	<button id="create_name" ng-click="createForm();">create new name</button>
+</span></p>
+<div id="list">
+	<ul ng-repeat="item in items">
+	<li>
+		<p>
+			{{item.fr}} : {{item.nl}}
+			<span class="btn delete">
+			<button id="delete" ng-click="delete(item)">delete name</button>
+
+			</span>
+			<span class="btn update">
+				<button id="update_pop" ng-click="updateForm(item)">update name</button>
+			</span>
+		</p>
+	</li>
+</ul>
+</div>
+
+
+<div id="update_form" class="ng-modal-dialog" ng-show="showUpdateForm">
+	<div class="ng-modal-dialog-content">
+		<button class="close" ng-click="hideUpdateForm()">close</button>
+	<h3>Update {{type}}</h3>
+			<form ng-submit="update()">
+			<input type="hidden" ng-model="updateItem.id" placeholder="{{updateItem.id}}" /></br>
+		<input type="text" ng-model="updateItem.fr" placeholder="{{updateItem.fr}}" /></br>
+		<input type="text" ng-model="updateItem.nl" placeholder="{{updateItem.nl}}" /></br>
+		<input type="submit" value="update">
+	</form>
+	</div>
+	<div>{{response.response}}</div>
+</div>
+<div id="create_form" class="ng-modal-dialog" ng-show="showCreateForm">
+	<div class="ng-modal-dialog-content" >
+	<button class="close" ng-click="hideCreateForm()">close</button>
+	<h3>Add new {{type}}</h3>
+			<form ng-submit="create()">
+		<input type="text" ng-model="createItem.fr" placeholder="nom" /></br>
+		<input type="text" ng-model="createItem.nl" placeholder="naam" /></br>
+		<input type="submit" value="create">
+	</form>
+	</div>
+	<div>{{response.response}}</div>
+</div>
+

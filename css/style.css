@@ -1,0 +1,210 @@
+/*html element*/
+fieldset{border:none;}
+.ital{font-style: italic;}
+
+/* page */
+/*header#header{ min-height: 50px; width: 100%; padding: 10px; background-color: rgb(204,245,240);}*/
+
+	header#header{
+		width: 100%;
+		min-height: 60px;
+		border-bottom: 1px solid #AA0C19 /*#5cb19b*/;
+		background: #DD1424; /* #7ec0b0;*/
+		background-image: -webkit-linear-gradient(top, #DD1424 50%, #D81625 50%);
+		background-image: -moz-linear-gradient(top, #DD1424 50%, #D81625 50%);
+		background-image: linear-gradient(top,#DD1424 50%, #D81625 50%);
+		-webkit-box-shadow: 0 8px 6px -6px black;
+		-moz-box-shadow: 0 8px 6px -6px black;
+	    box-shadow: 0px 1px 4px 0px #ccc;
+		padding: 20px 40px;
+	}
+
+
+span.btn {
+cursor: pointer;
+border:rgb(204, 204, 204)1px solid;
+background-color: white;
+color: rgb(172, 174, 176);
+border-radius: 4 px;
+padding: 4px 6px;
+text-align: center;
+  }
+
+  td > span.btn:first-child{ margin-left:1em;}
+
+	a.btn-header {
+text-shadow: 1px 1px 1px rgba(0, 0, 0, .1 );
+  color: #fff;
+  /*background-color: #fff;*/
+
+  font-weight:bold;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+}
+
+	a.btn-header:hover,
+	a.btn-header.active
+	 {
+		border: 1px solid #AA0C19;
+		text-decoration: none;
+		background: #CA222F;
+		border-radius: 3px;
+
+}
+
+
+/* menu */
+	header ul {padding: 0; }
+  header ul li{ display: inline; }
+  header ul li a{ text-decoration: none; }
+  header ul:first-child{float:left;}
+  header ul:last-child{float:right;}
+	.secondary-menu { color:#FFF; font-weight:bold; }
+
+/* content */
+
+#content header,
+#content article { padding:10px 40px 10px 65px; }
+
+#content header{
+	background-color:rgba(47, 68, 65, 0.97);
+	color:#fff;
+	/*border: 1px solid #42ab91;*/
+
+	}
+
+/* modal dialog */
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0.8;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: fixed;
+  width: 40%; /* Default */
+
+  /* Center the dialog */
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+
+  background-color: #fff;
+  box-shadow: 4px 4px 20px #000;
+  -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  /*font-family: 'arial', 'sans-serif';*/
+}
+
+.hidden{display:none;}
+
+div.pictos{display: inline-block; height: 100%; width:20px; }
+div.wrong{ background-color: red; }
+div.ok{background-color: green; }
+
+/* manage.html */
+
+/* menu */
+#content header div:first-child{ margin-bottom: 0.5em; }
+#content header div span button{ width: 15%; min-width: 50px; }
+
+/*list*/
+
+.showhide-0, .showhide-false { opacity: 0.5;}
+.showhide-1, .showhide-true  { opacity: 1;}
+#list-manage > div{
+  border-radius: 3px;
+  background-color: #DBE1E5 ;
+  margin-bottom: 0.5em;
+  padding: 0.2em  0em 0.2em 0.5em;
+
+}
+
+#list-manage >div>div>span.ng-binding{
+  display: inline-block;
+  min-width: 20%;
+   }
+
+	 /*table exercice*/
+	  table#exercice{}
+	 table#exercice tr{
+		 background-color: #DBE1E5 ;
+		 border-bottom: 4px #fff solid;
+
+		  }
+			table#exercice td{
+			padding: 2px 4px;
+
+				 }
+
+   /*scrollToTop*/
+
+   a.scrollToTop{
+    padding: 0 1em 0 0;
+    color:#DD1424;
+  display:none;
+  position: fixed;
+  right: 5%;
+ bottom:5%;
+   }
+   a.scrollToTop:hover{ color: #AA0C19; }
+
+	 /*Login*/
+
+	 .wrapper-center{
+		 margin: 0 auto;
+		 max-width:400px;
+		 padding-top: 30px;
+	 }
+	#login{text-align: center; }
+	#login label{
+		text-align:left;
+		display: block;
+	}
+	 #login input{ width:100%;
+	 margin-bottom:1rem; }
+	 #login button{
+		  margin-top:1rem;
+			display: block;
+width: 100%;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		}
+		#login a {color:#D81625;}
+		#login .has-error { color:#DD1424; font-weight: bold;}

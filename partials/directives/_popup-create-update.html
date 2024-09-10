@@ -1,0 +1,65 @@
+
+<div id="popup_create_update_form" class="ng-modal-dialog" ng-show="popup.showPopupForm">
+	<div class="ng-modal-dialog-content" ng-switch on="popup.crud">
+	
+		<span class="close" ng-click="popup.hidePopupForm()"><i class="fa fa-times fa-lg"></i></span>
+		
+		<!-- CREATE -->
+		<div ng-switch-when="create">
+			<h3 >Add new {{type}}</h3>
+
+			<input type="hidden" ng-model="$parent.type"/></br>
+				
+			<form ng-submit="popup.create(type,items)" ng-switch on="type">
+
+				<fieldset>
+					<span ng-switch-when="name">
+						<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.fr" placeholder="nom" /></br>
+						<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.nl" placeholder="naam" /></br>			
+					</span>
+					<span ng-switch-when="verb">
+						<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.fr" placeholder="verbe" /></br>
+						<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.nl" placeholder="verb" /></br>
+						<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.perfectum" placeholder="perf" /></br>	
+						<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.imperfectum" placeholder="imperf" /></br>				
+					</span>
+					<span ng-switch-when="zin">
+						<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.fr" placeholder="phrase" /></br>
+						<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.nl" placeholder="zin" /></br>			
+					</span>
+					<input class="btn btn-default" type="submit" value="create">
+				</fieldset>		
+			</form>
+		</div>
+		<!-- UPDATE -->
+		<div ng-switch-when="update">
+			<h3 >Update <span class="ital">{{popup.item.nl}}</span></h3>
+			<form ng-submit="popup.update(type)" ng-switch on="type">
+			<fieldset>
+				<input type="hidden" ng-model="$parent.popup.item.index" placeholder="{{popup.item.index}}" /></br>
+				<span ng-switch-when="name">
+					<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.fr" placeholder="{{popup.item.fr}}" /></br>
+					<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.nl" placeholder="{{popup.item.nl}}" /></br>
+				</span>
+				<span ng-switch-when="verb">
+					<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.fr" placeholder="{{popup.item.fr}}" /></br>
+					<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.nl" placeholder="{{popup.item.nl}}" /></br>
+					<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.perf" placeholder="{{popup.item.perf}}" /></br>	
+					<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.imperf" placeholder="{{popup.item.imperf}}" /></br>				
+				</span>
+				<span ng-switch-when="zin">
+					<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.fr" placeholder="{{popup.item.fr}}" /></br>
+					<input type="text" size="{{$parent.inputsize}}" ng-model="$parent.popup.item.nl" placeholder="{{popup.item.nl}}" /></br>			
+				</span>
+				<input class="btn btn-default" type="submit" value="update">			
+			</fieldset>		
+			</form>
+			
+		
+		</div>
+		
+	</div>
+	
+
+	<div>{{popup.response}}</div>
+</div>

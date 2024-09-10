@@ -1,0 +1,42 @@
+
+<div class="wrapper-center" id="login">
+
+	<div id="signin" ng-show="!inscription">
+		<H3>Sign in to your account</H3>
+		<p><small>Don't have an account? <a href="#" ng-click="$event.preventDefault(); inscription=!inscription">Create one</a>.</small></p>
+
+
+		<form action="login/index.php" method="post">
+			<div>
+				<input name="type" type="hidden" value="login">
+				<label for="name">name</label>
+				<input name="name" id="name" type="text" placeholder="name" ><br/>
+				<label for="email">email</label>
+				<input name="email" id="email" type="email" placeholder="email" ><br/>
+				<label for="password">password</label>
+				<input name="password" id="password" type="password"  placeholder="password" >
+				<button  type="submit">go ! </button>
+			</div>
+		</form>
+			<h5 class="has-error">{{error}}</h5>
+
+	</div>
+	<div id="inscription" ng-show="inscription">
+		<H3>Registration</H3>
+		<p><small>I remember my account ! <a href="#" ng-click="$event.preventDefault(); inscription=!inscription">Go to sign in</a>.</small></p>
+		<p>Message d'inscription</p>
+		<form action="login/index.php" method="post">
+			<div>
+				<input name="type" type="hidden" value="suscribe" ><br/>
+				<label for="name">name</label><br/>
+				<input name="name" id="name" type="text" placeholder="name" ><br/>
+				<label for="email">email</label><br/>
+				<input name="email" id="email" type="email" placeholder="email" ><br/>
+				<label for="password">password</label><br/>
+				<input name="password" id="password" type="password"  placeholder="password" >
+				<button  type="submit">go ! </button>
+			</div>
+		</form>
+	</div>
+
+</div>

@@ -1,0 +1,58 @@
+<div id="content">
+<header>
+	<div>
+		<span>
+	<button class="btn btn-default" id="create_name"  ng-model="type" ng-click="changeType('name');" value="name">display name's list</button>
+</span>
+<span>
+	<button class="btn btn-default" id="create_verb" ng-model="type" ng-click="changeType('verb');" value="verb">display verb's list</button>
+</span>
+<span>
+	<button class="btn btn-default" id="create_zin" ng-model="type" ng-click="changeType('zin');" value="zin"> display zin's list</button>
+</span>
+
+	</div>
+	<div ng-show="isLogged">
+		<span>
+	<button class="btn btn-default" id="create_name"  ng-model="type" ng-click="changeType('name'); popup.displayPopup('create',type)" value="name">create new name</button>
+</span>
+<span>
+	<button class="btn btn-default" id="create_verb" ng-model="type" ng-click="changeType('verb'); popup.displayPopup('create',type)" value="verb">create new verb</button>
+</span>
+<span>
+	<button class="btn btn-default" id="create_zin" ng-model="type" ng-click="changeType('zin'); popup.displayPopup('create', type)" value="zin">create new zin</button>
+</span>
+
+	</div>
+</header>
+<article id="list-manage">
+	<div class="new" ng-repeat="item in items" ng-if="item._new">
+		<div >
+			 <span>{{item.nl}} : {{item.fr}}</span>
+		</div>
+	</div>
+	<!-- <ul > -->
+	<div ng-repeat="item in items" ng-if="!item._new">
+		<div class="showhide-{{item.showhide}}">
+			 <span>{{item.nl}} : {{item.fr}}</span>
+
+			<span ng-show="isLogged" class="btn update-item" title="update" ng-click="popup.displayPopup('update',item)">
+						<i class="fa fa-pencil fa-lg"></i>
+					</span>
+					 <span ng-show="isLogged" class="btn hide-item" title="hide" ng-click="showhideItem(item)">
+					 	<i class="fa fa fa-ban fa-lg"></i>
+
+					 </span>
+					<span ng-show="isLogged" class="btn delete-item" title="delete" ng-click="deleteItem(item)" >
+						<i class="fa fa-times fa-lg"></i>
+
+					</span>
+		</div>
+	</div>
+<!-- </ul>
+ --></section>
+
+</div><!-- en content -->
+
+<!-- POP UP -->
+<ng-create-update-popup></ng-create-update-popup>

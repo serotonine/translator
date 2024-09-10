@@ -1,0 +1,29 @@
+
+<div id="signin" ng-show="!inscription">
+	<H3>Sign in to your account</H3>
+	<p><small>Don't have an account? <a href="inscription.html">Create one</a>.</small></p>
+
+	<form>
+		<div>
+			<label for="nickname">identifiant</label>
+			<input id="identifiant" type="text" size="30" placeholder="indentifiant" ><br/>
+			<label for="password">password</label>
+			<input id="password" type="text" size="30" placeholder="password" >
+			<button  type="submit">go ! </button>
+		</div>
+	</form>
+
+</div>
+<div id="inscription" ng-show="inscription">
+	<H3>Inscription</H3>
+	<p>Message d'inscription</p>
+	<form>
+		<div>
+			<label for="nickname">identifiant</label><br/>
+			<input id="identifiant" type="text" placeholder="indentifiant" ><br/>
+			<label for="password">password</label><br/>
+			<input id="password" type="text"  placeholder="password" >
+			<button  type="submit">go ! </button>
+		</div>
+	</form>
+</div>

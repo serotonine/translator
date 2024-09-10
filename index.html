@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Translator</title>
+	<link rel="icon" href="img/translate.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="//use.typekit.net/myp1kbl.js"></script>
+	<link rel="stylesheet" href="css/fonts/font-awesome/css/font-awesome.min.css">
+	<!--<script>try{Typekit.load();}catch(e){}</script>-->
+	<script src="library/angular.min.js"></script>
+	<script src="library/angular-route.js"></script>
+	<script src="library/angular-resource.js"></script>
+	<script src="library/angular-cookies.js"></script>
+	<script src="library/utils.js"></script>
+	<script src="js/app.js"></script>
+	<script src="library/jquery-1.11.2.min.js"></script>
+	<script src="library/ui-bootstrap/ui-bootstrap-popover-customized-tpls-0.12.0.js"></script>
+	<!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.min.js"> </script>-->
+	<script src="js/services/factory.js"></script>
+	<script src="js/controllers/ctrlhome.js"></script>
+	<script src="js/controllers/ctrlmanage.js"></script>
+	<script src="js/controllers/ctrllogin.js"></script>
+	<script src="js/directives/directives.js"></script>
+	<script src="js/directives/ngDraggable.js"></script>
+</head>
+<body ng-app="transapp">
+<div ng-controller="ctrlhome">
+		<header id="header">
+		<ul class="primary-menu">
+			<li><a href="#/" class="btn-header" ng-class="{active: ctrl=='home'}">home</a></li>
+			<li><a href="#/manage" class="btn-header" ng-class="{active: ctrl=='manage'}" >Manage my translate</a></li>
+		</ul>
+		<ul class="secondary-menu">
+		<li ng-show="!isLogged"><a href="#/login">login</a></li>
+		<li ng-show="isLogged">
+			<p>{{name}}</p>
+			<p><small><a href="#" ng-click="logout(); preventDefault">logout</a></small></p>
+		</li>
+	</ul>
+	</header>
+	<section ng-view >
+	</section>
+	<scroll-to-top></scroll-to-top>
+	<footer></footer>
+</div>
+</body>
+</html>
